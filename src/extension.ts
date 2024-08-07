@@ -16,6 +16,10 @@ export function activate(context: vscode.ExtensionContext) {
 	// });
 
 	// register the password-store tree data provider
+	// const rootPath =
+	// 	vscode.workspace.workspaceFolders && vscode.workspace.workspaceFolders.length > 0
+	// 	? vscode.workspace.workspaceFolders[0].uri.fsPath
+	// 	: undefined;
 	vscode.window.createTreeView('passTree', {
 		treeDataProvider: new PassTreeProvider()
 	});

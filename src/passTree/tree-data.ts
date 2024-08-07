@@ -10,8 +10,9 @@ export class PassTreeProvider implements vscode.TreeDataProvider<PassTreeItem> {
     private _passdir = String();
 
     constructor() {
+        const os = require('os');
         // TODO: make this a setting in the extension
-        this._passdir = path.normalize('/Users/jnn/Devel/VSCodeExt/pass-password-store/.password-store');
+        this._passdir = path.join(os.homedir(), '.password-store-test');
         vscode.window.showInformationMessage("password-store directory: ", this._passdir);
         console.debug('pass dir: ', this._passdir);
         this.getFiles();
@@ -31,12 +32,14 @@ export class PassTreeProvider implements vscode.TreeDataProvider<PassTreeItem> {
     }
 
     private async getFiles() {
-        try {
-            console.debug('Getting files from ', this._passdir);
-            const files = await readdir(this._passdir, { recursive: true });
-            this.makeTree(files);
-        } catch (err) {
-            console.error(err);
+        if (this.pathExists(this._passdir)) {
+            try {
+                console.debug('Getting files from ', this._passdir);
+                const files = await readdir(this._passdir, { recursive: true });
+                this.makeTree(files);
+            } catch (err) {
+                console.error(err);
+            }
         }
     }
 
