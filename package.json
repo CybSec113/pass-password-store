@@ -3,8 +3,9 @@
   "displayName": "pass password-store",
   "description": "Integrate UNIX pass password store with VSCode",
   "version": "0.0.1",
+  "publisher": "CybSec113",
   "engines": {
-    "vscode": "^1.91.0"
+    "vscode": "^1.92.0"
   },
   "categories": [
     "Other"
@@ -14,10 +15,27 @@
   "contributes": {
     "commands": [
       {
-        "command": "pass-password-store.helloWorld",
-        "title": "Hello World"
+        "command": "passGetFiles",
+        "title": "Get password-store files from specified location"
       }
-    ]
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "passActivityBar",
+          "title": "password-store",
+          "icon": "$(private-ports-view-icon)"
+        }
+      ]
+    },
+    "views": {
+      "passActivityBar": [
+        {
+          "id": "passTree",
+          "name": "password-store"
+        }
+      ]
+    }
   },
   "scripts": {
     "vscode:prepublish": "npm run compile",
