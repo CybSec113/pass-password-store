@@ -1,6 +1,18 @@
 # pass-password-store README
 
-This is the README for your extension "pass-password-store". After writing up a brief description, we recommend including the following sections.
+Currently under development, this VisualStudio Code extension will integrate Unix `pass` functionality.
+
+More information about `pass` can be found here: https://www.passwordstore.org
+
+Intended functionality is:  
+1. Display the `pass` file tree (see `pass` man page about file tree).
+2. When a password file is selected, decrypt the file in a temporary text editor.
+3. When the edits are complete, save the encrypted file and delete the temporary plaintext file.
+4. Implement extension Settings to support non-default password file directory location.
+
+Creating and deleting password files do not require special functionality.
+Also, no additional functionality is required to sync password files with GitHub.
+
 
 ## Features
 
