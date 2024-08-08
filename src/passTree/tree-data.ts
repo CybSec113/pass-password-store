@@ -66,13 +66,8 @@ export class PassTreeProvider implements vscode.TreeDataProvider<PassTreeItem> {
             else {
                 this._passTree.push(new PassTreeItem(splits[splits.length-1], file, new Array<PassTreeItem>()));
             }
-
-            /*
-            if (splits.length === 1) {
-                this._passTree.push(new PassTreeItem(splits[0], file, new Array<PassTreeItem>()));
-            }
-            */
         }
+        
         return [];
     }
 
